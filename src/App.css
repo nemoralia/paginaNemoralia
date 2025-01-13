@@ -1,0 +1,144 @@
+.header {
+  background-color: #686867;
+  padding: 10px;
+  text-align: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 98%;
+  z-index: 1000; /* Asegúrate de que el navbar esté por encima de otros elementos */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para darle un efecto de elevación */
+  
+}
+
+.navbar-brand img {
+  width: 150px; 
+  height: auto;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: flex-end; /* Alinea los elementos a la derecha */
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-left: 20px; /* Espacio entre los elementos */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.watermark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://i.imgur.com/blcufSD.png") no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #686867;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer .container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body{
+  color:black
+}
+.container-full-height {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.red-box {
+  background-color: #E40E20;
+  padding: 0.01rem;
+  text-align: center;
+}
+
+.red-box h2, .red-box h3 {
+  color: white;
+  font-weight: bold;
+  font-size: 1.6rem; /* Aumenta el tamaño de la fuente */
+}
+
+.red-box h2 {
+  margin-bottom: 0.5rem; /* Ajusta este valor para juntar los elementos */
+}
+
+/* General Styles */
+.black-box {
+  background-color: #10101B;
+  padding: 5rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.form-label-white {
+  color: white;
+}
+
+/* General Styles */
+.input-center {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+  color: gray;
+  padding: 0.75rem; /* Ajusta el padding para aumentar el tamaño del input */
+  height: auto; /* Ajusta la altura del input */
+}
+
+.text-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem; /* Ajusta este valor para más espacio entre los elementos */
+  font-size: 1.5rem;
+}
+
+.btn-secondary {
+  margin-top: 1.5rem; /* Añade espacio superior al botón */
+  font-size: 1.25rem; /* Aumenta el tamaño de la letra del botón */
+  padding: 0.75rem 1.5rem; /* Ajusta el padding para aumentar el tamaño del botón */
+  border-radius: 0.5rem; /* Ajusta el border-radius para redondear los bordes del botón */
+}
+

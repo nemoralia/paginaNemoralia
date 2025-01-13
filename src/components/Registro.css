@@ -1,0 +1,30 @@
+/* Label Styles */
+.registro-label {
+    font-size: 20px; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-weight: bold; /* Opcional: para hacer el texto más grueso */
+  }
+  
+  /* General Styles */
+  .registro-input-center {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    color: gray;
+    padding: 0.75rem; /* Ajusta el padding para aumentar el tamaño del input */
+    height: auto; /* Ajusta la altura del input */
+  }
+  
+  /* Input Styles */
+  .registro-input {
+    font-size: 25px; /* Ajusta el tamaño de la fuente según sea necesario */
+  }
+  
+  .registro-input::placeholder {
+    font-size: 16px; /* Ajusta el tamaño de la fuente del placeholder según sea necesario */
+  }
+  
+  .mb-3-registro {
+    margin-bottom: 1.0rem; /* Ajusta el margen inferior según sea necesario */
+  }
