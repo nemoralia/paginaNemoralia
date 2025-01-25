@@ -8,7 +8,6 @@ import Registro from './components/Registro';
 import Olvidaste from './components/Olvidaste';
 import Carrito from './components/Carrito';
 
-
 function App() {
   return (
     <div id="root">
@@ -19,17 +18,15 @@ function App() {
         </a>
         <nav className="navbar">
           <ul className="navbar-nav">
-            <li className="nav-item"><Link to="/home">Inicio</Link></li>
+            <li className="nav-item"><Link to="/">Inicio</Link></li>
             <li className="nav-item"><Link to="/login">Login</Link></li>
             <li className="nav-item"><Link to="/shopping_cart">Carrito</Link></li>
           </ul>
         </nav>
-
-
       </header>
       <div className="container-full-height">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/olvidaste" element={<Olvidaste />} />
@@ -37,8 +34,6 @@ function App() {
           {/* Agrega más rutas según sea necesario */}
         </Routes>
       </div>
-
-
       <footer className="footer">
         <div className="container-fluid">
           <div className="container text-center">
