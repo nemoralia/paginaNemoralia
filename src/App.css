@@ -38,14 +38,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 
 /* Caja Roja */
 .red-box {
   background-color: #E40E20;
-  padding: 0.01rem;
+  padding: 1.00rem;
   text-align: center;
 }
 
@@ -62,9 +62,13 @@ body{
 /* Caja Negra */
 .black-box {
   background-color: #10101B;
-  padding: 5rem;
+  padding: 3rem;
   text-align: center;
   margin-top: 0;
+}
+
+.black-box input {
+  margin-bottom: 0.5rem; /* Ajusta este valor para acercar los elementos input */
 }
 
 .form-label-white {

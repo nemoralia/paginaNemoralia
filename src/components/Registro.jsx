@@ -5,7 +5,7 @@ import './Registro.css';
 function Registro() {
   return (
     <div className="container-full-height">
-      <div className="w-50">
+      <div className="w-100">
         {/* CUADRO ROJO */}
         <div className="border red-box">
           <h2 className="text-center">¡Crea tu cuenta! <br/>Favor llenar el formulario.</h2>

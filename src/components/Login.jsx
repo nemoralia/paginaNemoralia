@@ -5,7 +5,7 @@ import './Login.css';
 function Login() {
   return (
     <div className="container-full-height">
-      <div className="w-50">
+      <div className="w-100">
         {/* CUADRO ROJO */}
         <div className="border red-box">
           <h2 className="text-center">¡Hola de nuevo! <br />Inicia sesión para continuar.</h2>
