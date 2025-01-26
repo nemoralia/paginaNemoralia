@@ -20,9 +20,21 @@ function App() {
             </Link>
           </div>
           <ul className="navbar-nav">
-            <li className="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/shopping_cart">Carrito</Link></li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                <i className="fas fa-home"></i> Inicio
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
+                <i className="fas fa-sign-in-alt"></i> Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/shopping_cart">
+                <i className="fas fa-shopping-cart"></i> Carrito
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
