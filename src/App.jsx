@@ -40,9 +40,14 @@ function App() {
       </header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <ul className="navbar-nav mx-auto">
-          <li className="nav-item"><Link className="nav-link" to="/productos/camisetas">Camisetas</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/tazas">Tazas</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/artesanias">Artesanías</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/productos/ofertas">Ofertas</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos/pocillos">Pocillos</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos/velas">Velas</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos/cuadernos">Cuadernos</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos/llaveros">LLaveros</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos/Listones">Listones</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos/nosotros">Nosotros</Link></li>
+          
         </ul>
       </nav>
       <div className="container-full-height">
@@ -54,7 +59,6 @@ function App() {
           <Route path="/shopping_cart" element={<Carrito />} />
           <Route path="/productos/camisetas" element={<div>Camisetas</div>} />
           <Route path="/productos/tazas" element={<div>Tazas</div>} />
-          <Route path="/productos/artesanias" element={<div>Artesanías</div>} />
         </Routes>
       </div>
       <footer className="footer text-white mt-5 p-4 text-center">
