@@ -8,6 +8,9 @@ import Home from './components/Home';
 import Registro from './components/Registro';
 import Olvidaste from './components/Olvidaste';
 import Carrito from './components/Carrito';
+import Nosotros from './components/Nosotros';
+import Productos from './components/Productos';
+import Ofertas from './components/Ofertas';
 
 function App() {
   return (
@@ -40,14 +43,9 @@ function App() {
       </header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <ul className="navbar-nav mx-auto">
-        <li className="nav-item"><Link className="nav-link" to="/productos/ofertas">Ofertas</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/pocillos">Pocillos</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/velas">Velas</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/cuadernos">Cuadernos</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/llaveros">LLaveros</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/Listones">Listones</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/productos/nosotros">Nosotros</Link></li>
-          
+          <li className="nav-item"><Link className="nav-link" to="/productos/ofertas">Ofertas</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/productos">Productos</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/nosotros">Nosotros</Link></li>
         </ul>
       </nav>
       <div className="container-full-height">
@@ -57,8 +55,9 @@ function App() {
           <Route path="/registro" element={<Registro />} />
           <Route path="/olvidaste" element={<Olvidaste />} />
           <Route path="/shopping_cart" element={<Carrito />} />
-          <Route path="/productos/camisetas" element={<div>Camisetas</div>} />
-          <Route path="/productos/tazas" element={<div>Tazas</div>} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/productos/ofertas" element={<Ofertas />} />
+          <Route path="/nosotros" element={<Nosotros />} />
         </Routes>
       </div>
       <footer className="footer text-white mt-5 p-4 text-center">

@@ -26,33 +26,35 @@ function Home() {
         
         <div className="product-grid">
           <div className="product-card">
-            <img src="ruta/a/imagen1.jpg" alt="Producto 1" className="product-image" />
+            <img src="https://i.imgur.com/S3CisSL.png" alt="Producto 1" className="product-image" />
             <h3 className="product-title">Nuestras ofertas</h3>
             <p>Ver más</p>
           </div>
+
           <div className="product-card">
-            <img src="ruta/a/imagen2.jpg" alt="Producto 2" className="product-image" />
+            <img src="https://i.imgur.com/m7eTnku.png" alt="Producto 2" className="product-image" />
             <h3 className="product-title">Pocillos</h3>
             <p>Ver más</p>
           </div>
+          
           <div className="product-card">
-            <img src="ruta/a/imagen3.jpg" alt="Producto 3" className="product-image" />
+            <img src="https://i.imgur.com/IwWu4Tl.png" alt="Producto 3" className="product-image" />
             <h3 className="product-title">Velas</h3>
             <p>Ver más</p>
           </div>
           <div className="product-card">
-            <img src="ruta/a/imagen4.jpg" alt="Producto 4" className="product-image" />
+            <img src="https://i.imgur.com/z4dKRVK.png" alt="Producto 4" className="product-image" />
             <h3 className="product-title">Cuadernos</h3>
             <p>Ver más</p>
           </div>
           <div className="product-card">
-            <img src="ruta/a/imagen5.jpg" alt="Producto 5" className="product-image" />
+            <img src="https://i.imgur.com/8tRPfWK.png" alt="Producto 5" className="product-image" />
             <h3 className="product-title">Llaveros</h3>
             <p>Ver más</p>
           </div>
           <div className="product-card">
-            <img src="ruta/a/imagen6.jpg" alt="Producto 6" className="product-image" />
-            <h3 className="product-title">Listones</h3>
+            <img src="https://i.imgur.com/Ywl4R5W.png" alt="Producto 6" className="product-image" />
+            <h3 className="product-title">Camisetas</h3>
             <p>Ver más</p>
           </div>
         </div>
