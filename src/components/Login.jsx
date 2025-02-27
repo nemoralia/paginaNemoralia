@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 
-function Login() {
-  const [usuario, setUsuario] = React.useState("");
-  const [clave, setClave] = React.useState("");
+function Login({ setNombreUsuario }) {
+  const [usuario, setUsuario] = useState("");
+  const [clave, setClave] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -15,6 +15,7 @@ function Login() {
       );
       if (res.ok) {
         alert("Inicio de sesión correcto");
+        setNombreUsuario(usuario);
       } else {
         alert("Inicio de sesión incorrecto");
       }
@@ -29,6 +30,8 @@ function Login() {
         credentials: "include",
       });
       if (res.ok) {
+        const data = await res.json();
+        setNombreUsuario(data.usuario);
         alert("Inicio de sesión correcto");
       }
     } catch (error) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
@@ -14,6 +14,25 @@ import Productos from './components/Productos';
 import Ofertas from './components/Ofertas';
 
 function App() {
+  const [nombreUsuario, setNombreUsuario] = useState("Login");
+
+  useEffect(() => {
+    async function validar() {
+      try {
+        const res = await fetch("http://localhost:3000/validar", {
+          credentials: "include",
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setNombreUsuario(data.usuario);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    validar();
+  }, []);
+
   return (
     <div id="root">
       <header className="header">
@@ -31,7 +50,7 @@ function App() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">
-                <i className="fas fa-sign-in-alt"></i> Login
+                <i className="fas fa-sign-in-alt"></i> {nombreUsuario}
               </Link>
             </li>
             <li className="nav-item">
@@ -52,7 +71,7 @@ function App() {
       <div className="container-full-height">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setNombreUsuario={setNombreUsuario} />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/olvidaste" element={<Olvidaste />} />
           <Route path="/shopping_cart" element={<Carrito />} />
