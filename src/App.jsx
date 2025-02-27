@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import './App.css';
 import './index.css';
 import Login from './components/Login';
@@ -69,6 +70,9 @@ function App() {
           <p>© 2024 Nemoralia. Todos los derechos reservados.</p>
         </div>
       </footer>
+      <a href="https://wa.me/573193061149" className="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <i className="fab fa-whatsapp"></i> ¿Necesitas ayuda? <br></br>Chatea con nosotros
+      </a>
     </div>
   );
 }
