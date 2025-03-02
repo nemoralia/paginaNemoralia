@@ -1,47 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-function Login({ setNombreUsuario }) {
+function Login({ setNombreUsuario, handleSubmit, handleLogout }) {
   const [usuario, setUsuario] = useState("");
   const [clave, setClave] = useState("");
   const navigate = useNavigate();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      const res = await fetch(
-        `http://localhost:3000/login?usuario=${usuario}&clave=${clave}`,
-        { credentials: "include" }
-      );
-      if (res.ok) {
-        alert("Inicio de sesión correcto");
-        setNombreUsuario(usuario);
-      } else {
-        alert("Inicio de sesión incorrecto");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async function handleLogout() {
-    try {
-      const res = await fetch("http://localhost:3000/logout", {
-        method: "POST",
-        credentials: "include",
-      });
-      if (res.ok) {
-        setNombreUsuario("Login");
-        navigate("/");
-        alert("Sesión cerrada correctamente");
-      } else {
-        alert("Error al cerrar sesión");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  const handleFormSubmit = (e) => {
+    handleSubmit(e, usuario, clave);
+  };
 
   return (
     <div className="container-full-height">
@@ -55,7 +23,7 @@ function Login({ setNombreUsuario }) {
         </div>
         {/* CUADRO NEGRO */}
         <div className="border shadow black-box">
-          <form className="text-center" onSubmit={handleSubmit}>
+          <form className="text-center" onSubmit={handleFormSubmit}>
             <div className="mb-3-login">
               <label
                 htmlFor="exampleInputEmail1"
@@ -105,9 +73,6 @@ function Login({ setNombreUsuario }) {
               </Link>
             </div>
           </form>
-          <button className="btn btn-secondary mt-3" onClick={handleLogout}>
-            Cerrar sesión
-          </button>
         </div>
       </div>
     </div>

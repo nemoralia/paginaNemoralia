@@ -34,6 +34,41 @@ function App() {
     validar();
   }, []);
 
+  async function handleSubmit(e, usuario, clave) {
+    e.preventDefault();
+    try {
+      const res = await fetch(
+        `http://localhost:3000/login?usuario=${usuario}&clave=${clave}`,
+        { credentials: "include" }
+      );
+      if (res.ok) {
+        alert("Inicio de sesión correcto");
+        setNombreUsuario(usuario);
+      } else {
+        alert("Inicio de sesión incorrecto");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleLogout() {
+    try {
+      const res = await fetch("http://localhost:3000/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      if (res.ok) {
+        setNombreUsuario("Login");
+        navigate("/");
+        alert("Sesión cerrada correctamente");
+      } else {
+        alert("Error al cerrar sesión");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div id="root">
@@ -55,6 +90,13 @@ function App() {
                 <i className="fas fa-sign-in-alt"></i> {nombreUsuario}
               </Link>
             </li>
+            {nombreUsuario !== "Login" && (
+              <li className="nav-item">
+                <button className="nav-link btn btn-link" onClick={handleLogout}>
+                  <i className="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+              </li>
+            )}
             <li className="nav-item">
               <Link className="nav-link" to="/shopping_cart">
                 <i className="fas fa-shopping-cart"></i> Carrito
@@ -73,7 +115,7 @@ function App() {
       <div className="container-full-height">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login setNombreUsuario={setNombreUsuario} />} />
+          <Route path="/login" element={<Login setNombreUsuario={setNombreUsuario} handleSubmit={handleSubmit} handleLogout={handleLogout} />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/olvidaste" element={<Olvidaste />} />
           <Route path="/shopping_cart" element={<Carrito />} />
