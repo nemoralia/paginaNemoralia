@@ -1,7 +1,7 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Importa Font Awesome
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import './App.css';
 import './index.css';
 import Login from './components/Login';
@@ -14,6 +14,62 @@ import Productos from './components/Productos';
 import Ofertas from './components/Ofertas';
 
 function App() {
+  const [nombreUsuario, setNombreUsuario] = useState("Login");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function validar() {
+      try {
+        const res = await fetch("http://localhost:3000/validar", {
+          credentials: "include",
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setNombreUsuario(data.usuario);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    validar();
+  }, []);
+
+  async function handleSubmit(e, usuario, clave) {
+    e.preventDefault();
+    try {
+      const res = await fetch(
+        `http://localhost:3000/login?usuario=${usuario}&clave=${clave}`,
+        { credentials: "include" }
+      );
+      if (res.ok) {
+        alert("Inicio de sesión correcto");
+        setNombreUsuario(usuario);
+      } else {
+        alert("Inicio de sesión incorrecto");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleLogout() {
+    try {
+      const res = await fetch("http://localhost:3000/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      if (res.ok) {
+        setNombreUsuario("Login");
+        navigate("/");
+        alert("Sesión cerrada correctamente");
+      } else {
+        alert("Error al cerrar sesión");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div id="root">
       <header className="header">
@@ -31,9 +87,16 @@ function App() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">
-                <i className="fas fa-sign-in-alt"></i> Login
+                <i className="fas fa-sign-in-alt"></i> {nombreUsuario}
               </Link>
             </li>
+            {nombreUsuario !== "Login" && (
+              <li className="nav-item">
+                <button className="nav-link btn btn-link" onClick={handleLogout}>
+                  <i className="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+              </li>
+            )}
             <li className="nav-item">
               <Link className="nav-link" to="/shopping_cart">
                 <i className="fas fa-shopping-cart"></i> Carrito
@@ -52,7 +115,7 @@ function App() {
       <div className="container-full-height">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setNombreUsuario={setNombreUsuario} handleSubmit={handleSubmit} handleLogout={handleLogout} />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/olvidaste" element={<Olvidaste />} />
           <Route path="/shopping_cart" element={<Carrito />} />
