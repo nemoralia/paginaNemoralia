@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login({ setNombreUsuario }) {
   const [usuario, setUsuario] = useState("");
   const [clave, setClave] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -24,24 +25,23 @@ function Login({ setNombreUsuario }) {
     }
   }
 
-  async function validar() {
+  async function handleLogout() {
     try {
-      const res = await fetch("http://localhost:3000/validar", {
+      const res = await fetch("http://localhost:3000/logout", {
+        method: "POST",
         credentials: "include",
       });
       if (res.ok) {
-        const data = await res.json();
-        setNombreUsuario(data.usuario);
-        alert("Inicio de sesión correcto");
+        setNombreUsuario("Login");
+        navigate("/");
+        alert("Sesión cerrada correctamente");
+      } else {
+        alert("Error al cerrar sesión");
       }
     } catch (error) {
       console.error(error);
     }
   }
-
-  useEffect(() => {
-    validar();
-  }, []);
 
   return (
     <div className="container-full-height">
@@ -105,6 +105,9 @@ function Login({ setNombreUsuario }) {
               </Link>
             </div>
           </form>
+          <button className="btn btn-secondary mt-3" onClick={handleLogout}>
+            Cerrar sesión
+          </button>
         </div>
       </div>
     </div>

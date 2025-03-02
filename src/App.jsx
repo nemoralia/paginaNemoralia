@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import './App.css';
@@ -15,6 +15,7 @@ import Ofertas from './components/Ofertas';
 
 function App() {
   const [nombreUsuario, setNombreUsuario] = useState("Login");
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function validar() {
@@ -32,6 +33,7 @@ function App() {
     }
     validar();
   }, []);
+
 
   return (
     <div id="root">
