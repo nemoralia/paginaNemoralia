@@ -17,6 +17,15 @@ function App() {
   const [nombreUsuario, setNombreUsuario] = useState("Login");
   const navigate = useNavigate();
 
+  const [usuarioRegistro, setUsuarioRegistro] = useState("");
+  const [claveRegistro, setClaveRegistro] = useState("");
+  const [confirmarClaveRegistro, setConfirmarClaveRegistro] = useState("");
+  const [nombreRegistro, setNombreRegistro] = useState("");
+  const [apellidoRegistro, setApellidoRegistro] = useState("");
+  const [telefonoRegistro, setTelefonoRegistro] = useState("");
+  const [direccionRegistro, setDireccionRegistro] = useState("");
+  const [fechaNacimientoRegistro, setFechaNacimientoRegistro] = useState("");
+
   useEffect(() => {
     async function validar() {
       try {
@@ -70,6 +79,24 @@ function App() {
     }
   }
 
+  async function registrar() {
+    try {
+      const peticion = await fetch(`http://localhost:3000/registro?usuario=${usuarioRegistro}&clave=${claveRegistro}&nombre=${nombreRegistro}&apellido=${apellidoRegistro}&telefono=${telefonoRegistro}&direccion=${direccionRegistro}&fecha_nacimiento=${fechaNacimientoRegistro}`, { credentials: "include" });
+      if (peticion.ok) {
+        alert("Registro exitoso");
+        setNombreUsuario(usuarioRegistro);
+        navigate("/");
+      } else if (peticion.status === 409) {
+        alert("El usuario ya existe");
+      } else {
+        alert("Error en el registro");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error en el servidor");
+    }
+  }
+
   return (
     <div id="root">
       <header className="header">
@@ -116,7 +143,25 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setNombreUsuario={setNombreUsuario} handleSubmit={handleSubmit} handleLogout={handleLogout} />} />
-          <Route path="/registro" element={<Registro />} />
+          <Route path="/registro" element={<Registro 
+            usuarioRegistro={usuarioRegistro} 
+            setUsuarioRegistro={setUsuarioRegistro}
+            claveRegistro={claveRegistro}
+            setClaveRegistro={setClaveRegistro}
+            confirmarClaveRegistro={confirmarClaveRegistro}
+            setConfirmarClaveRegistro={setConfirmarClaveRegistro}
+            nombreRegistro={nombreRegistro}
+            setNombreRegistro={setNombreRegistro}
+            apellidoRegistro={apellidoRegistro}
+            setApellidoRegistro={setApellidoRegistro}
+            telefonoRegistro={telefonoRegistro}
+            setTelefonoRegistro={setTelefonoRegistro}
+            direccionRegistro={direccionRegistro}
+            setDireccionRegistro={setDireccionRegistro}
+            fechaNacimientoRegistro={fechaNacimientoRegistro}
+            setFechaNacimientoRegistro={setFechaNacimientoRegistro}
+            registrar={registrar}
+          />} />
           <Route path="/olvidaste" element={<Olvidaste />} />
           <Route path="/shopping_cart" element={<Carrito />} />
           <Route path="/productos" element={<Productos />} />
