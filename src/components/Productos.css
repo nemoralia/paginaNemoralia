@@ -1,20 +1,43 @@
-
 .productos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .producto-item {
   border: 1px solid #ccc;
   padding: 10px;
+  border-radius: 5px;
   text-align: center;
 }
 
 .producto-item img {
   max-width: 100%;
   height: auto;
-  width: 200px; /* Ajusta el ancho deseado */
-  height: 200px; /* Ajusta la altura deseada */
-  object-fit: cover; /* Asegura que la imagen se recorte para llenar el contenedor */
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #cc0000;
 }

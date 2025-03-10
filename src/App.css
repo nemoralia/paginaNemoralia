@@ -33,13 +33,7 @@
 body{
   color:black
 }
-.container-full-height {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
+
 
 
 /* Caja Roja */
@@ -145,4 +139,18 @@ body{
 
 .whatsapp-button:hover {
   background-color: #1ebd5a;
+}
+
+button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  z-index: 10; /* Asegúrate de que el botón esté por encima de otros elementos */
+}
+
+button:hover {
+  background-color: #cc0000;
 }
