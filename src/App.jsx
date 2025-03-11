@@ -27,6 +27,7 @@ function App() {
   const [fechaNacimientoRegistro, setFechaNacimientoRegistro] = useState("");
   const [productos, setProductos] = useState([]);
 
+  // La función useEffect se ejecuta cuando el componente se monta
   useEffect(() => {
     async function validar() {
       try {
@@ -44,6 +45,7 @@ function App() {
     validar();
   }, []);
 
+  // La función handleSubmit recibe el evento, el usuario y la clave
   async function handleSubmit(e, usuario, clave) {
     e.preventDefault();
     try {
@@ -62,7 +64,7 @@ function App() {
       console.error(error);
     }
   }
-
+// La función handleLogout cierra la sesión del usuario
   async function handleLogout() {
     try {
       const res = await fetch("http://localhost:3000/logout", {
@@ -80,7 +82,7 @@ function App() {
       console.error(error);
     }
   }
-
+// La función registrar registra un nuevo usuario
   async function registrar() {
     try {
       const peticion = await fetch(`http://localhost:3000/registro?usuario=${usuarioRegistro}&clave=${claveRegistro}&nombre=${nombreRegistro}&apellido=${apellidoRegistro}&telefono=${telefonoRegistro}&direccion=${direccionRegistro}&fecha_nacimiento=${fechaNacimientoRegistro}`, { credentials: "include" });
@@ -99,7 +101,7 @@ function App() {
       alert("Error en el servidor");
     }
   }
-
+// La función obtenerProductos obtiene los productos de la base de datos
   async function obtenerProductos() {
     try {
       const peticion = await fetch("http://localhost:3000/productos", { credentials: "include" });

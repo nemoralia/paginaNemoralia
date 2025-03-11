@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Productos.css';
 
+// La función Productos recibe un objeto con la propiedad nombreUsuario
+// que contiene el nombre del usuario actualmente autenticado
 function Productos({ nombreUsuario }) {
   const [productos, setProductos] = useState([]);
   const [nuevoProducto, setNuevoProducto] = useState({
@@ -10,7 +12,7 @@ function Productos({ nombreUsuario }) {
     caracteristicas: '',
     imagen: ''
   });
-
+  // La función useEffect se ejecuta cuando el componente se monta
   useEffect(() => {
     axios.get('http://localhost:3000/productos')
       .then(response => {
@@ -21,6 +23,7 @@ function Productos({ nombreUsuario }) {
       });
   }, []);
 
+  // La función eliminarProducto recibe el ID del producto a eliminar
   async function eliminarProducto(id) {
     try {
       const peticion = await fetch("http://localhost:3000/productos?id=" + id, { 
@@ -37,7 +40,7 @@ function Productos({ nombreUsuario }) {
       console.error('Error al eliminar el producto:', error);
     }
   }
-
+  // La función agregarProducto se ejecuta cuando se envía el formulario
   async function agregarProducto(e) {
     e.preventDefault();
     try {
@@ -61,13 +64,16 @@ function Productos({ nombreUsuario }) {
       console.error('Error al agregar el producto:', error);
     }
   }
-
+  // La función añadirACarrito recibe un objeto con la información del producto
   function añadirACarrito(producto) {
     console.log(`Producto con ID ${producto.id} añadido al carrito.`);
     // Aquí puedes añadir la lógica para añadir el producto al carrito
   }
 
   return (
+    // El componente Productos renderiza una lista de productos
+    // y un formulario para agregar nuevos productos
+    // Si el usuario no está autenticado, no podrá agregar productos SE DEBE CAMBIAR POR UNA AUTENTICACIÓN DE ADMINISTRADOR
     <div>
       <h1>Productos</h1>
       <br></br>
@@ -83,7 +89,7 @@ function Productos({ nombreUsuario }) {
         ))}
       </div>
       <br></br>
-        
+      
       <h3>Crear Productos</h3>
       {nombreUsuario !== "Login" && (
         <form onSubmit={agregarProducto}>
